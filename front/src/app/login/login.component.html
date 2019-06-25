@@ -1,0 +1,49 @@
+<div class="container" *ngIf="!forgotPassword">
+  <div class="row">
+    <div class="col-sm-6 col-md-4 col-md-offset-4">
+      <h1 class="text-center login-title" [ngStyle]="{'color': color}">{{logintext}}</h1>
+      <div class="account-wall">
+        <img class="profile-img" [src]="inputLogo" alt="">
+        <form #registrationForm="ngForm" (ngSubmit)="loginUser()" [formGroup]="myForm" class="form-signin">
+          <div class="form-group">
+            <input id="username" type="text" required autofocus placeholder="Username" class="form-control" formControlName="username">
+            <div class="errorMessage" *ngIf="myForm.controls['username'].touched && !myForm.controls['username'].valid">Username is required</div>
+          </div>
+          <div class="form-group">
+            <input id="password" type="password" required class="form-control" placeholder="Password" formControlName="password">
+            <div class="errorMessage" *ngIf="myForm.controls['password'].touched && !myForm.controls['password'].valid">password is required</div>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-lg btn-primary btn-block" [disabled]="!registrationForm.valid">Sign in</button>
+          </div>
+          <label class="checkbox pull-left">
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+          <a href="#" class="pull-right need-help">Need help? </a><span class="clearfix"></span>
+        </form>
+      </div>
+      <a [routerLink]=" ['/forgot-password'] " class="text-center new-account">Forgot password? </a><span class="clearfix"></span>
+    </div>
+  </div>
+</div>
+
+<p>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#contentId" aria-expanded="false"
+      aria-controls="contentId">
+    Show
+  </button>
+</p>
+<div class="collapse" id="contentId">
+  <ul class="nav justify-content-center">
+      <li class="nav-item">
+          <a class="nav-link active" href="#">Active link</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled link</a>
+      </li>
+  </ul>
+  
+</div>
